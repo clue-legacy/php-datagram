@@ -3,6 +3,7 @@
 namespace Datagram;
 
 use React\Promise\When;
+use \Exception;
 
 class FactoryUnix
 {
