@@ -10,6 +10,10 @@ class FactoryUnix
 
     public function __construct(LoopInterface $loop)
     {
+        if (array_search('udg', stream_get_transports()) === false) {
+            throw new Exception('No support for UDG transport in your installation');
+        }
+
         $this->loop = $loop;
     }
 
