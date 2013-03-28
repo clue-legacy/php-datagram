@@ -44,7 +44,7 @@ class FactoryUnix
             }
         }
 
-        return When::resolve(new Server($this->loop, $socket, $address));
+        return When::resolve(new UnixServer($this->loop, $socket, $address));
     }
 
     private function createAdress($path)
