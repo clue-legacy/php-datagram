@@ -25,13 +25,23 @@ class FactoryUnix
         return When::resolve(new Client($this->loop, $socket, $address));
     }
 
-    public function createServer($path)
+    public function createServer($path, $chmod = null)
     {
         $address = $this->createAddress($path);
 
         $socket = stream_socket_server($address, $errno, $errstr, STREAM_SERVER_BIND);
         if (!$socket) {
             return When::reject(new Exception('Unable to create server socket: ' . $errstr, $errno));
+        }
+
+        if ($chmod !== null) {
+            if (chmod($path, $chmod) === false) {
+                // chmod failed => clean up socket
+                fclose($socket);
+                unlink($path);
+
+                return When::reject(new Exception('Unable to chmod server socket'));
+            }
         }
 
         return When::resolve(new Server($this->loop, $socket, $address));
