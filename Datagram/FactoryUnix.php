@@ -2,6 +2,7 @@
 
 namespace Datagram;
 
+use React\EventLoop\LoopInterface;
 use React\Promise\When;
 use \Exception;
 use \InvalidArgumentException;
@@ -69,7 +70,7 @@ class FactoryUnix
         return When::resolve(new UnixServer($this->loop, $socket, $address));
     }
 
-    private function createAdress($path)
+    private function createAddress($path)
     {
         return 'udg://' . $path;
     }
