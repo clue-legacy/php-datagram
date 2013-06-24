@@ -2,7 +2,7 @@
 
 namespace Datagram;
 
-use Evenement\EventEmitter;
+use Datagram\BufferAbstract;
 use Exception;
 
 class BufferStreamSocket extends BufferAbstract

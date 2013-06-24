@@ -6,7 +6,7 @@ use React\EventLoop\LoopInterface;
 use React\Dns\Resolver\Resolver;
 use React\Promise\When;
 use Datagram\Socket;
-use \Exception;
+use Exception;
 
 class Factory
 {
@@ -64,7 +64,7 @@ class Factory
         }
 
         if ($this->resolver === null) {
-            return When::reject(\Exception('No resolver given in order to get IP address for given hostname'));
+            return When::reject(Exception('No resolver given in order to get IP address for given hostname'));
         }
         return $this->resolver->resolve($host);
     }

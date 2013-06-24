@@ -4,7 +4,7 @@ namespace Datagram;
 
 use Evenement\EventEmitter;
 use React\EventLoop\LoopInterface;
-use \Exception;
+use Exception;
 
 abstract class BufferAbstract extends EventEmitter
 {
