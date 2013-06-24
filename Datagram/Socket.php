@@ -19,7 +19,7 @@ class Socket extends EventEmitter implements SocketInterface
         $this->loop = $loop;
         $this->socket = $socket;
 
-        $this->buffer = new Buffer($loop, $socket);
+        $this->buffer = new BufferStreamSocket($loop, $socket);
         $that = $this;
         $this->buffer->on('error', function ($error) use ($that) {
             $that->emit('error', array($error, $that));
