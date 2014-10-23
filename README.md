@@ -1,10 +1,10 @@
-# clue/datagram moved to reactphp/datagram
+# PROJECT MOVED
 
-The source code has been migrated over to https://github.com/reactphp/datagram
+The source code of clue/datagram has been migrated over to https://github.com/reactphp/datagram
 
-## Package clue/datagram is being deprecated
+Package clue/datagram is now deprecated.
 
-Attention, this repository is currently in the process of being deprecated.
+## Upgrading
 
 Consider upgrading to use the above repository instead.
 
@@ -14,10 +14,12 @@ composer.json to use the updated package name:
 ```json
 {
     "require": {
-        "react/datagram": "dev-master"
+        "react/datagram": "~1.0"
     }
 }
 ```
+
+Then, make sure to use namespace `React\Datagram` instead of `Datagram` and you're ready to go!
 
 ## Archived history
 
